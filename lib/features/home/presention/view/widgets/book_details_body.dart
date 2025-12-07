@@ -1,3 +1,5 @@
+import 'package:bookly/features/home/presention/view/widgets/book_list_item.dart';
+import 'package:bookly/features/home/presention/view/widgets/custom_book_details_appbar.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
@@ -5,28 +7,17 @@ class BookDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    var width = MediaQuery.of(context).size.width;
+    return Column(
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: CustomBookDetailsAppBar(),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * .3),
+          child: const BookListItem(),
         )
-      ],
-    );
-  }
-}
-
-class CustomBookDetailsAppBar extends StatelessWidget {
-  const CustomBookDetailsAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.close)),
-        IconButton(
-            onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined))
       ],
     );
   }
